@@ -1,8 +1,6 @@
 <script>
-  import {defineComponent} from 'vue';
-  export default defineComponent({
+  export default {
     name: 'vue-treeselect--tip',
-    functional: true,
 
     props: {
       type: {
@@ -15,7 +13,7 @@
       },
     },
 
-    render(context) {
+    render(slots) {
       const { type,icon } = this
 
       return (
@@ -24,10 +22,10 @@
             <span class={`vue-treeselect__icon-${icon}`} />
           </div>
           <span class={`vue-treeselect__tip-text vue-treeselect__${type}-tip-text`}>
-            {this.$slots.default()}
+            {slots.default}
           </span>
         </div>
       )
     },
-  })
+  }
 </script>

@@ -1,6 +1,5 @@
 <script>
   import { isNaN } from '../utils'
-  import {defineComponent} from 'vue';
 
   function stringifyValue(value) {
     if (typeof value === 'string') return value
@@ -10,13 +9,15 @@
     return ''
   }
 
-  export default defineComponent({
+  export default {
     name: 'vue-treeselect--hidden-fields',
     inject: [ 'instance' ],
-    functional: true,
 
     render(context) {
-      const instance = context.instance
+      const { instance } = this
+
+      if (!instance) return null;
+      if (!("name" in instance)) return null;
 
       if (!instance.name || instance.disabled || !instance.hasValue) return null
 
@@ -34,5 +35,5 @@
         />
       ))
     },
-  })
+  }
 </script>

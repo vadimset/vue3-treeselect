@@ -55,6 +55,7 @@
     },
 
     methods: {
+
       renderX() {
         const { instance } = this
         const title = instance.multiple ? instance.clearAllText : instance.clearValueText
